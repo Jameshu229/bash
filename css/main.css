@@ -33,7 +33,7 @@ body {
 
 #afui input,textarea { -webkit-user-select:text; -moz-user-select:-moz-text;-moz-user-select:text;} /* allow users to select text that appears in input fields */
 
-#afui img { border:none; } /* Remove default borders for images */
+#afui img { border:none;width:100%; } /* Remove default borders for images */
 
 
 #afui p {
@@ -82,10 +82,14 @@ body {
     color:inherit;
 }
 
-
-
+#afui .icon{border:1px solid grey;border-radius:4px;display: inline-block;padding: 15px;margin: 10px;}
+#afui .message{float:right;}
+#afui .numberblock{display: inline-block;margin: 2px;top: 10px;position: relative;text-align: right;}
 #afui .afScrollPanel { width:100%; min-height:100%; }
-
+#afui .scoreup{color:green;display: inline;}
+#afui .scoredown{color:red;display: inline;}
+#afui .zan{color:green;display: inline;}
+#afui .cai{color:red;display: inline;}
 #afui {
     position:absolute;
     width:100%;

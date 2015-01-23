@@ -16,12 +16,12 @@
 	color:inherit;
 	position:relative;
 	font-size:1em;
-	left:-3px; top:2px;
+	left:3px; top:4px;
 }
 li .icon:before {
 	position:relative;
 	width:24px; height:100%;
-	top:2px;
+	top:4px;
 	line-height:0 !important;
 	margin-right:4px;
 }

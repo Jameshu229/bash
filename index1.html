@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+<head>
+    <script>
+        (function() {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                        document.createTextNode("@-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        })();
+    </script>
+
+    <title>App Framework Kitchen Sink</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+    <!--
+  <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
+-->
+    <link rel="stylesheet" type="text/css" href="css/main.css"  />
+    <link rel="stylesheet" type="text/css" href="css/appframework.css"  />
+    <link rel="stylesheet" type="text/css" href="css/lists.css"  />
+    <link rel="stylesheet" type="text/css" href="css/forms.css"  />
+    <link rel="stylesheet" type="text/css" href="css/buttons.css"  />
+    <link rel="stylesheet" type="text/css" href="css/badges.css"  />
+    <link rel="stylesheet" type="text/css" href="css/grid.css"  />
+
+    <link rel="stylesheet" type="text/css" href="css/android.css"  />
+    <link rel="stylesheet" type="text/css" href="css/win8.css"  />
+    <link rel="stylesheet" type="text/css" href="css/bb.css"  />
+    <link rel="stylesheet" type="text/css" href="css/ios.css"  />
+    <link rel="stylesheet" type="text/css" href="css/ios7.css"  />
+    <link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+    <link rel="stylesheet" type="text/css" href="css/firefox.css"  />
+
+    <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+    <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+    <link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+    <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />
+
+    <!-- uncomment for intel.xdk apps
+    <script type="text/javascript" charset="utf-8" src="intelxdk.js"></script>
+    <script type="text/javascript" charset="utf-8" src="xhr.js"></script>
+    -->
+    <script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+    <!-- include af.desktopBrowsers.js on desktop browsers only -->
+    <script>
+
+        function loadedPanel(what) {
+            //We are going to set the badge as the number of li elements inside the target
+            $.ui.updateBadge("#aflink", $("#af").find("li").length);
+        }
+
+
+        function unloadedPanel(what) {
+            console.log("unloaded " + what.id);
+        }
+
+        if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+            var script = document.createElement("script");
+            script.src = "plugins/af.desktopBrowsers.js";
+            var tag = $("head").append(script);
+            //$.os.desktop=true;
+        }
+
+        //  $.feat.nativeTouchScroll=true;
+
+    </script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./plugins/af.8tiles.js"></script>
+
+
+    <script type="text/javascript">
+        /* This function runs once the page is loaded, but intel.xdk is not yet active */
+        //$.ui.animateHeaders=false;
+        var search=document.location.search.toLowerCase().replace("?","");
+        //if(!search)
+        $.ui.useOSThemes=true;
+        $.ui.overlayStatusbar=true; // for ios7 only to add header padding to overlay the statusbar
+        // $.ui.resetScrollers=true;
+        if(search.length>0) //Android fix has too many buggy issues on iOS - can't preview with $.os.android
+        {
+
+            $.ui.useOSThemes=true;
+            if(search=="win8")
+                $.os.ie=true;
+            else if(search=="firefox")
+                $.os.fennec="true"
+            $.ui.ready(function(){
+                $("#afui").get(0).className=search;
+            });
+        }
+
+        var webRoot = "./";
+        // $.os.android=true;
+        $.ui.autoLaunch = false;
+        $.ui.openLinksNewTab = false;
+        $.ui.splitview=false;
+
+
+        $(document).ready(function(){
+            $.ui.launch();
+        });
+
+        /* This code is used to run as soon as intel.xdk activates */
+        var onDeviceReady = function () {
+            $.ui.launch();
+            intel.xdk.device.setRotateOrientation("portrait");
+            intel.xdk.device.setAutoRotate(false);
+            webRoot = intel.xdk.webRoot + "";
+            //hide splash screen
+            intel.xdk.device.hideSplashScreen();
+            $.ui.blockPageScroll(); //block the page from scrolling at the header/footer
+        };
+        document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+
+        function showHide(obj, objToHide) {
+            var el = $("#" + objToHide)[0];
+
+            if (obj.className == "expanded") {
+                obj.className = "collapsed";
+            } else {
+                obj.className = "expanded";
+            }
+            $(el).toggle();
+
+        }
+
+
+        if($.os.android||$.os.ie||search=="android"){
+            $.ui.ready(function(){
+                $("#main .list").append("<li><a id='toggleAndroidTheme'>Toggle Theme Color</a></li>");
+                var $el=$("#afui");
+                $("#toggleAndroidTheme").bind("click",function(e){
+                    if($el.hasClass("light"))
+                        $el.removeClass("light");
+                    else
+                        $el.addClass("light");
+                });
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+<div id="afui">
+    <!-- this is the splashscreen you see. -->
+    <div id="splashscreen" class='ui-loader heavy'>
+        能哲智能科技
+        <br>
+        <br>    <span class='ui-icon ui-icon-loading spin'></span>
+        <h1>启动中...</h1>
+
+    </div>
+
+    <div id="content">
+        <div title="Scroller" class="panel" id="webslider">
+            <script>
+                var myScroller;
+                $.ui.ready(function () {
+                    //藏头藏脚
+                    $.ui.toggleHeaderMenu();
+                    $.ui.toggleNavMenu();
+                    $("#afui").css("margin-top","0");
+
+                    myScroller = $("#webslider").scroller(); //Fetch the scroller from cache
+                    //Since this is a App Framework UI scroller, we could also do
+                    // myScroller=$.ui.scrollingDivs['webslider'];
+                    myScroller.addInfinite();
+                    myScroller.addPullToRefresh();
+                    myScroller.runCB=true;
+                    $.bind(myScroller, 'scrollend', function () {
+                        console.log("scroll end");
+                    });
+
+                    $.bind(myScroller, 'scrollstart', function () {
+                        console.log("scroll start");
+                    });
+                    $.bind(myScroller,"scroll",function(position){
+
+                    })
+                    $.bind(myScroller, "refresh-trigger", function () {
+                        console.log("Refresh trigger");
+                    });
+                    var hideClose;
+                    $.bind(myScroller, "refresh-release", function () {
+                        var that = this;
+                        console.log("Refresh release");
+                        clearTimeout(hideClose);
+                        hideClose = setTimeout(function () {
+                            console.log("hiding manually refresh");
+                            that.hideRefresh();
+                        }, 5000);
+                        return false; //tells it to not auto-cancel the refresh
+                    });
+
+                    $.bind(myScroller, "refresh-cancel", function () {
+                        clearTimeout(hideClose);
+                        console.log("cancelled");
+                    });
+                    myScroller.enable();
+
+                    $.bind(myScroller, "infinite-scroll", function () {
+                        var self = this;
+                        console.log("infinite triggered");
+                        $(this.el).append("<div id='infinite' style='border:2px solid black;margin-top:10px;width:100%;height:20px'>Fetching content...</div>");
+                        $.bind(myScroller, "infinite-scroll-end", function () {
+                            $.unbind(myScroller, "infinite-scroll-end");
+                            self.scrollToBottom();
+                            setTimeout(function () {
+                                $(self.el).find("#infinite").remove();
+                                self.clearInfinite();
+                                $(self.el).append("<div>This was loaded via inifinite scroll<br>More Content</div>");
+                                self.scrollToBottom();
+                            }, 3000);
+                        });
+                    });
+                    $("#webslider").css("overflow", "auto");
+
+
+
+                });
+            </script>
+            <ul id="gag">
+
+            </ul>
+            <script type="text/javascript">
+                var htmlstr="";
+                for(var i=0;i<4;i++){
+
+                    htmlstr+='<li>' +
+                    '<h2>这个是标题0</h2>' +
+                    '<img src="img/pic1.jpg"></div>' +
+                    '<div class="icon up big"></div>' +
+                    '<div class="icon down big"></div>' +
+                    '<div class="icon message big"></div>' +
+                    '</li><hr>'
+                }
+                $("#gag").html(htmlstr);
+
+            </script>
+
+
+
+</div>
+<aside title="Right">
+    <p>This is a right side menu</p>
+</aside>
+</div>
+
+</body>
+</html>

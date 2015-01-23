@@ -1,0 +1,97 @@
+<div id="contentDIV">
+<link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" /> 
+
+<h2 class='expanded' onclick='showHide(this,"icons_info");'>Vector Icons</h2>
+	<p id='icons_info'>系统设置PhoneGap中文网是国内最大的跨平台移动互联网软件开发中文门户网之一，提供JqueryMobile教程 phonegap教程 senchar视频教程下载学习
+		<br>.mini -  .7em high
+		<br>.big - 1.5em hight
+		<br>The default is 1em.
+		<br>
+	</p>
+	
+	<p>看看有滚动条没有</p>
+	<p>看看有滚动条没有</p>
+	<p>看看有滚动条没有99999</p>
+	<script>
+	var search=document.location.search.toLowerCase().replace("?","");
+	//alert(lsGetItem());
+//$.ui.loadAjax("ajax.txt",false,false,"slide",true);	
+	$.jsonP({
+			url:'http://jsfiddle.net/echo/jsonp/?test=some+html+content&callback=?',		
+		//	http://www.57lehuo.com/index.php?a=index&m=api&method=itemsSearchGet&keyword=连衣裙&sign=5cb85c3eed22c1908e05c584813c8dd2
+			success:function(json){
+				//$('#af23_content').html(data.test)						
+						$("#thelist").append("<li>"+json['test']+"</li>");
+					
+			}
+		});	
+</script>
+
+	<ul class="list" id="thelist">
+						
+		<li>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+            <a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+			<a  class="icon chat big">Chat</a>
+		</li>
+	
+	
+	</ul>
+</div>

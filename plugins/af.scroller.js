@@ -270,7 +270,7 @@
             },
             fireRefreshRelease: function (triggered) {
                 if (!this.refresh || !triggered) return;
-                this.setRefreshContent("Refreshing...");
+                this.setRefreshContent("刷新...");
                 var autoCancel = $.trigger(this, "refresh-release", [triggered]) !== false;
                 this.preventHideRefresh = false;
                 this.refreshRunning = true;
